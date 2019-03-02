@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 Servinus api
+  h2 Authentification
+  p
+    div
+      b Get user authentification token with email and password
+    code POST /auth 
+    div
+      i Headers:
+    div
+    code Body: { email[str], password[str], keep[int(0|1)] }
+    div
+    code Content-Type: application/json
+  p
+    div
+      b Remove user from session
+    code DELETE /auth
+    div
+      i Headers:
+    div
+    code Content-Type: application/json

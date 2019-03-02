@@ -1,0 +1,18 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "scripts": {
+    "migrate": "db-migrate",
+    "dev": "NODE_ENV=dev db-migrate up:global --env dev & NODE_ENV=dev db-migrate up:dev --env dev",
+    "prod": "NODE_ENV=prod db-migrate up:global --env prod & NODE_ENV=prod db-migrate up:prod --env prod",
+    "test": "NODE_ENV=test db-migrate up:global --env test & NODE_ENV=test db-migrate up:test --env test"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "db-migrate": "^0.11.5",
+    "db-migrate-mysql": "^1.1.10"
+  }
+}

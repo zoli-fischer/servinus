@@ -1,0 +1,39 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "servinus api",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon -w src --exec \"babel-node server.js --presets env\"",
+    "prod": "NODE_ENV=prod pm2 start server.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "author": "Zoltan Fischer",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "frameguard": "^3.0.0",
+    "helmet": "^3.15.1",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.5.0",
+    "morgan": "~1.9.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10",
+    "pm2": "^3.3.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0",
+    "eslint": "^5.14.1",
+    "eslint-plugin-node": "^8.0.1"
+  }
+}
