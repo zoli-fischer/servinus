@@ -12,6 +12,7 @@ const config = require('./config');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const videoRouter = require('./routes/video');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use(frameguard())  // defaults to sameorigin
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
+app.use('/video', videoRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
