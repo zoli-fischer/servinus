@@ -19,4 +19,3 @@ export default function FormSwitch({ children, checked, onChange: onChangeProps,
         </label>
     );
 }
-
