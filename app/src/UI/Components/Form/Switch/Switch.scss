@@ -1,0 +1,31 @@
+:local(.Wrapper) {
+    background: #333333;
+    border-radius: 4px;
+    position: relative;
+    padding: 5px 10px;
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+}
+
+:local(.Text) {
+    flex-grow: 1;
+    color: #8c8c8c;
+    transition: .2s color ease-out;
+}
+
+:local(.SwitchWrapper) {
+    flex-grow: 0;
+    position: relative;
+    top: 7px;
+}
+
+:local(.Wrapper) {
+    &:hover {
+        :local(.Text) {
+            color: #ffffff;
+            transition: .2s color ease-in;
+        }
+    }
+}

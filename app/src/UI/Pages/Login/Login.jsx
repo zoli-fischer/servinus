@@ -43,7 +43,7 @@ export default function name(props) {
                                 ) : null
                             }
                             <Button type="submit" className="btn btn-primary btn-lg btn-block">Submit</Button>
-                            <Switch>Remember me</Switch>
+                            <Switch checked={true} className="mt-3">Remember me</Switch>
                         </Form>
                     </div>
                 </div>
