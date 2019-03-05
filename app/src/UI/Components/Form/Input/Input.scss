@@ -1,0 +1,53 @@
+:local(.InputWrapper) {
+    height: 70px;
+    background: #333333;
+    border-radius: 4px;
+    position: relative;
+    padding: 32px 10px 0 10px;
+}
+
+:local(.Label) {
+    position: absolute;
+    font-size: 13px;
+    color: #8c8c8c;
+    top: 10px;
+    font-weight: 400;
+    padding: 0 10px;
+    transition: .2s color ease-out;
+}
+
+:local(.Input) {
+    padding: 0 10px;
+    opacity: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    height: 30px;
+
+    &,
+    &:focus {
+        opacity: 1;
+        color: #ffffff;
+        background-color: rgba(155, 155, 155, 0.1);
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        outline: 0;
+        transition: .2s background ease-out;
+    }
+}
+
+:local(.Focused) {
+    :local(.Label) {
+        color: #cfcfcf;
+        transition: .2s color ease-in;
+    }
+
+    :local(.Input) {
+        &,
+        &:focus {
+            background-color: rgba(155, 155, 155, 0.4);
+            transition: .2s background ease-in;
+        }
+    }
+}

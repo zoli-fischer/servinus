@@ -12,4 +12,5 @@ module.exports = {
     Components: path.resolve(paths.appSrc, 'UI/Components/'),
     Containers: path.resolve(paths.appSrc, 'UI/Containers/'),
     Pages: path.resolve(paths.appSrc, 'UI/Pages/'),
+    Styles: path.resolve(paths.appSrc, 'Styles/'),
 };
