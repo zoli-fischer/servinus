@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createAPI } from 'Factories/API';
+import Logo from 'Components/Logo/Logo';
 import Frame from 'Components/Frame/Frame';
 import Input from 'Components/Form/Input/Input';
 import Form from 'Components/Form/Form';
@@ -29,11 +30,12 @@ export default function name(props) {
     }
 
     return (
-        <Frame className={Styles.Frame} headerBackgroundColor="transparent">
+        <Frame className={Styles.Frame} showHeader={false}>
             <div className={Styles.FlexWrapper}>
-                <div className={`container h-100`}>
-                    <div className="row align-content-center">
-                        <div className={`col-12 offset-0 col-md-8 offset-md-2 col-lg-6 offset-lg-3 ${Styles.FormWrapper}`}>
+                <div className="container h-100">
+                    <div className="row h-100">
+                        <div className={`col-12 offset-0 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center align-self-center ${Styles.FormWrapper}`}>
+                            <Logo className="mb-4" />
                             <h1 className={ContentStyles.H1}>Sign in</h1>
                             <Form onSubmit={onSubmit}>
                                 <Input type="email" name="email" onChange={(value) => { setEmail(value); setShowError(false); }}>Email address</Input>
