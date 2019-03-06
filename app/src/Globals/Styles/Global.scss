@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Roboto:300,400,700&subset=latin-ext');
+@import './Variables.scss';
+
+/*Buttons*/
+
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:focus,
+    &:active,
+    &:hover {
+        background-color: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+    }
+}
+
+.btn-danger {
+    background-color: $danger-color;
+    border-color: $danger-color;
+
+    &:focus,
+    &:active,
+    &:hover {
+        background-color: darken($danger-color, 10%);
+        border-color: darken($danger-color, 10%);
+    }
+}

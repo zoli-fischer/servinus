@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducers from 'Reducers/Reducers';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
+import Styles from './App.scss';
 import AsyncComponent from 'Components/AsyncComponent/AsyncComponent';
 import PublicRoute from 'Containers/PublicRoute/PublicRoute';
 import PrivateRoute from 'Containers/PrivateRoute/PrivateRoute';
@@ -32,13 +32,15 @@ const NotFound = AsyncComponent(() => import('Pages/NotFound/NotFound'));
 export default function App(props) {
     return (
         <Provider store={store}>
-            <Router>
-                <Switch>
-                    <PublicRoute path="/login" exact component={Login} />
-                    <PrivateRoute path="/" exact component={Users} />
-                    <Route component={NotFound} />
-                </Switch>
-            </Router>
+            <div className={Styles.App}>
+                <Router>
+                    <Switch>
+                        <PublicRoute path="/login" exact component={Login} />
+                        <PrivateRoute path="/" exact component={Users} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </Router>
+            </div>
         </Provider>
     );
 }

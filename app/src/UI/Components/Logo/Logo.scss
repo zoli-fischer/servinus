@@ -1,0 +1,9 @@
+@import 'Globals/Styles/Variables.scss';
+
+:local(.Logo) {
+    font-family: $logo-font-family;
+    font-size: 48px;
+    display: inline-block;
+    color: $primary-color;
+    font-weight: bold;
+}
