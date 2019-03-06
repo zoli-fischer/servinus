@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from 'Components/Header/Header';
-import Style from './Frame.scss';
+import Styles from './Frame.scss';
 
-export default function Frame({ className, children, ...rest }) {
+export default function Frame({ className, children, headerBackgroundColor, ...rest }) {
     return (
-        <div className={`${Style.Frame} ${className}`} {...rest}>
-            <Header />
-            <div>
+        <div className={`${Styles.Frame} flex-nowrap ${className}`} {...rest}>
+            <Header className={Styles.Header} style={{ backgroundColor: headerBackgroundColor }} />
+            <div className={Styles.Content}>
                 {children}
             </div>
         </div>

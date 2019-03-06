@@ -1,12 +1,10 @@
-:local(.FlexWrapper) {
+:local(.Frame) {
     background-color: #000000;
     background-image: url(/login-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100%;
-    display: flex;
-
+    
     &:after {
         content: '';
         display: block;
@@ -19,6 +17,11 @@
         opacity: 0.5;
         z-index: 0;
     }
+}
+
+:local(.FlexWrapper) {
+    height: 100%;
+    display: flex;
 }
 
 :local(.FormWrapper) {

@@ -4,12 +4,13 @@ export default class API {
         this.authToken = authToken;
     }
 
-    auth(email, password) {
+    auth(email, password, keep) {
         return this.fetch('/auth', {
             method: 'POST',
             body: JSON.stringify({
                 email,
                 password,
+                keep: keep ? 1 : 0,
             }),
         });
     }

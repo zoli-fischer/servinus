@@ -11,10 +11,11 @@ import ContentStyles from 'Styles/Content.scss';
 export default function name(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(true);
     const [showError, setShowError] = useState(false);
 
     function onSubmit() {
-        createAPI().auth(email, password)
+        createAPI().auth(email, password, remember)
             .then(response => {
                 props.setUserData({
                     token: response.data.authToken,
@@ -28,15 +29,15 @@ export default function name(props) {
     }
 
     return (
-        <Frame>
+        <Frame className={Styles.Frame} headerBackgroundColor="transparent">
             <div className={Styles.FlexWrapper}>
                 <div className={`container h-100`}>
-                    <div className="row h-100 align-content-center">
-                        <div className={`col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 ${Styles.FormWrapper}`}>
+                    <div className="row align-content-center">
+                        <div className={`col-12 offset-0 col-md-8 offset-md-2 col-lg-6 offset-lg-3 ${Styles.FormWrapper}`}>
                             <h1 className={ContentStyles.H1}>Sign in</h1>
                             <Form onSubmit={onSubmit}>
-                                <Input type="email" onChange={(value) => { setEmail(value); setShowError(false); }}>Email address</Input>
-                                <Input type="password" onChange={(value) => { setPassword(value); setShowError(false); }}>Password</Input>
+                                <Input type="email" name="email" onChange={(value) => { setEmail(value); setShowError(false); }}>Email address</Input>
+                                <Input type="password" name="password" onChange={(value) => { setPassword(value); setShowError(false); }}>Password</Input>
                                 {
                                     showError ? (
                                         <div className="alert alert-danger">
@@ -45,7 +46,7 @@ export default function name(props) {
                                     ) : null
                                 }
                                 <Button type="submit" className="btn btn-primary btn-lg btn-block">Submit</Button>
-                                <Switch checked={true} className="mt-3">Remember me</Switch>
+                                <Switch checked={remember} onChange={(value) => { setRemember(value); setShowError(false); }} className="mt-3">Remember me</Switch>
                             </Form>
                         </div>
                     </div>
