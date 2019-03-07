@@ -7,10 +7,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducers from 'Reducers/Reducers';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Styles from './App.scss';
 import AsyncComponent from 'Components/AsyncComponent/AsyncComponent';
 import PublicRoute from 'Containers/PublicRoute/PublicRoute';
 import PrivateRoute from 'Containers/PrivateRoute/PrivateRoute';
+import Styles from './App.scss';
 
 const middlewares = [applyMiddleware(thunk)];
 
@@ -22,14 +22,14 @@ if (window.__REDUX_DEVTOOLS_EXTENSION__) {
 
 const store = createStore(
     Reducers,
-    compose(...middlewares),
+    compose(...middlewares)
 );
 
 const Login = AsyncComponent(() => import('Containers/Pages/Login/Login'));
 const Users = AsyncComponent(() => import('Containers/Pages/Users/Users'));
 const NotFound = AsyncComponent(() => import('Pages/NotFound/NotFound'));
 
-export default function App(props) {
+export default function App() {
     return (
         <Provider store={store}>
             <div className={Styles.App}>

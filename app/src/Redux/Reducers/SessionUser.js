@@ -5,12 +5,13 @@ const sessionUser = (state = {
     data: getStoredUserData(),
 }, action) => {
     switch (action.type) {
-    case SET_DATA:
+    case SET_DATA: {
         const data = Object.assign({}, getEmptyUserData(), action.data);
         setStoredUserData(data);
         return Object.assign({}, state, {
             data,
         });
+    }
     default:
         return state;
     }
