@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { createAPI } from 'Factories/API';
 import Logo from 'Components/Logo/Logo';
 import Frame from 'Components/Frame/Frame';
@@ -9,7 +10,7 @@ import Switch from 'Components/Form/Switch/Switch';
 import Styles from './Login.scss';
 import ContentStyles from 'Styles/Content.scss';
 
-export default function name(props) {
+export default function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(true);
@@ -38,8 +39,8 @@ export default function name(props) {
                             <Logo className="mb-4" />
                             <h1 className={ContentStyles.H1}>Sign in</h1>
                             <Form onSubmit={onSubmit}>
-                                <Input type="email" name="email" onChange={(value) => { setEmail(value); setShowError(false); }}>Email address</Input>
-                                <Input type="password" name="password" onChange={(value) => { setPassword(value); setShowError(false); }}>Password</Input>
+                                <Input type="email" name="email" onChange={value => { setEmail(value); setShowError(false); }}>Email address</Input>
+                                <Input type="password" name="password" onChange={value => { setPassword(value); setShowError(false); }}>Password</Input>
                                 {
                                     showError ? (
                                         <div className="alert alert-danger">
@@ -48,7 +49,7 @@ export default function name(props) {
                                     ) : null
                                 }
                                 <Button type="submit" className="btn btn-primary btn-lg btn-block">Submit</Button>
-                                <Switch checked={remember} onChange={(value) => { setRemember(value); setShowError(false); }} className="mt-3">Remember me</Switch>
+                                <Switch checked={remember} onChange={value => { setRemember(value); setShowError(false); }} className="mt-3">Remember me</Switch>
                             </Form>
                         </div>
                     </div>
@@ -57,3 +58,11 @@ export default function name(props) {
         </Frame>
     );
 }
+
+Login.propTypes = {
+    setUserData: PropTypes.func,
+};
+
+Login.defaultProps = {
+    setUserData: () => {},
+};

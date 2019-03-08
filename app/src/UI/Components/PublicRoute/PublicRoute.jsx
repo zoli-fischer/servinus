@@ -24,6 +24,8 @@ export default function PublicRoute({ component: Component, ...rest }) {
 }
 
 PublicRoute.propTypes = {
+    component: PropTypes.any.isRequired,
+    location: PropTypes.object.isRequired,
     isSessionUser: PropTypes.bool,
 };
 

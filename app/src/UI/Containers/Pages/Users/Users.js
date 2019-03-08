@@ -6,17 +6,17 @@ function mapStateToProps(state) {
     return {
         sessionUser: state.sessionUser.data,
     };
-};
+}
 
 function mapDispatchToProps(dispatch) {
     return {
-        onLogout: (data) => {
+        onLogout: () => {
             dispatch(clearData());
         },
     };
-};
+}
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(Users);

@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Switch from "react-switch";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Switch from 'react-switch';
 import Styles from './Switch.scss';
 
-export default function FormSwitch({ children, checked, className, style, onChange: onChangeProps, ...rest }) {
+export default function FormSwitch({
+    children, checked, className, style, onChange: onChangeProps,
+    ...rest
+}) {
     const [value, setValue] = useState(!!checked);
 
     function onChange(event) {
@@ -37,3 +41,19 @@ export default function FormSwitch({ children, checked, className, style, onChan
         </div>
     );
 }
+
+FormSwitch.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+    className: PropTypes.string,
+    checked: PropTypes.bool,
+    style: PropTypes.object,
+    onChange: PropTypes.func,
+};
+
+FormSwitch.defaultProps = {
+    children: null,
+    className: null,
+    checked: false,
+    style: {},
+    onChange: () => {},
+};

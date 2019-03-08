@@ -27,7 +27,23 @@
         "max-len": 0,
         "no-console": 0,
         "import/no-unresolved": 0,
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+        "import/no-named-as-default": 0,
+        "import/named": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-duplicates": 0,
+        "import/extensions": 0,
+        "import/order": 0,
+        "import/no-self-import": 0,
+        "import/no-cycle": 0,
+        "import/no-named-as-default-member": 0,
+        "import/no-useless-path-segments": 0,
+        "arrow-parens": ["error", "as-needed"],
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/label-has-for": 0,
+        "react/destructuring-assignment": 0,
+        "react/jsx-indent-props": [2, 4],
+        "react/forbid-prop-types": 0
     },
     "plugins": [
         "react"

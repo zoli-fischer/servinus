@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { createAPI } from 'Factories/API';
 
 export default function Users(props) {
@@ -31,7 +32,7 @@ export default function Users(props) {
     function addUser() {
         setLoading(true);
         createAPI(sessionUser.token).putUser(email, password)
-            .then(response => {
+            .then(() => {
                 getUsers();
                 clearAddUserForm();
             })
@@ -44,7 +45,7 @@ export default function Users(props) {
     function deleteUser(id) {
         setLoading(true);
         createAPI(sessionUser.token).deleteUser(id)
-            .then(response => {
+            .then(() => {
                 getUsers();
             })
             .catch(response => {
@@ -68,7 +69,7 @@ export default function Users(props) {
                                     <Link className="nav-link active" to="/">Users</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" onClick={props.onLogout} href="javascript:{}">Logout</a>
+                                    <button type="button" className="nav-link" onClick={props.onLogout}>Logout</button>
                                 </li>
                             </ul>
                         </nav>
@@ -86,8 +87,8 @@ export default function Users(props) {
                                 <div className="input-group-prepend">
                                     <button type="button" className="btn btn-primary" onClick={addUser}>Add</button>
                                 </div>
-                                <input type="email" autoComplete="new-password" className="form-control" placeholder="E-mail address" onChange={(event) => { setEmail(event.target.value); }} value={email} />
-                                <input type="password" autoComplete="new-password" className="form-control" placeholder="Password" onChange={(event) => { setPassword(event.target.value); }} value={password} />
+                                <input type="email" autoComplete="new-password" className="form-control" placeholder="E-mail address" onChange={event => { setEmail(event.target.value); }} value={email} />
+                                <input type="password" autoComplete="new-password" className="form-control" placeholder="Password" onChange={event => { setPassword(event.target.value); }} value={password} />
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@ export default function Users(props) {
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" />
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,7 +122,7 @@ export default function Users(props) {
                                                     <th scope="row">{user.id}</th>
                                                     <td>{user.email}</td>
                                                     <td className="text-right">
-                                                        <button disabled={sessionUser.id === user.id} type="button" className="btn btn-danger btn-sm" onClick={(id) => { deleteUser(user.id); }}>Delete</button>
+                                                        <button disabled={sessionUser.id === user.id} type="button" className="btn btn-danger btn-sm" onClick={() => { deleteUser(user.id); }}>Delete</button>
                                                     </td>
                                                 </tr>
                                             ))
@@ -136,3 +137,15 @@ export default function Users(props) {
         </React.Fragment>
     );
 }
+
+Users.propTypes = {
+    sessionUser: PropTypes.shape({
+        token: PropTypes.string,
+        id: PropTypes.number,
+    }).isRequired,
+    onLogout: PropTypes.func,
+};
+
+Users.defaultProps = {
+    onLogout: () => {},
+};

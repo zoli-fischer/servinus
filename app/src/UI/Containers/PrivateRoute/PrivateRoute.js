@@ -5,8 +5,8 @@ function mapStateToProps(state) {
     return {
         isSessionUser: !!state.sessionUser.data.token,
     };
-};
+}
 
 export default connect(
-    mapStateToProps,
+    mapStateToProps
 )(PrivateRoute);

@@ -4,13 +4,13 @@ import { setData } from 'Actions/SessionUser';
 
 function mapDispatchToProps(dispatch) {
     return {
-        setUserData: (data) => {
+        setUserData: data => {
             dispatch(setData(data));
         },
     };
-};
+}
 
 export default connect(
     null,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(Login);

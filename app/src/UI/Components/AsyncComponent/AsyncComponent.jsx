@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function asyncComponent(importComponent) {
-    return (props) => {
+    return props => {
         const [Component, setComponent] = useState(null);
 
         useEffect(() => {
@@ -14,5 +14,5 @@ export default function asyncComponent(importComponent) {
         }, []);
 
         return Component ? <Component {...props} /> : null;
-    }
+    };
 }

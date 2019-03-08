@@ -21,9 +21,11 @@ export default function PrivateRoute({ component: Component, ...rest }) {
             )}
         />
     );
-};
+}
 
 PrivateRoute.propTypes = {
+    component: PropTypes.any.isRequired,
+    location: PropTypes.object.isRequired,
     isSessionUser: PropTypes.bool,
 };
 

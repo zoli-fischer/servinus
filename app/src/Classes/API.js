@@ -56,7 +56,7 @@ export default class API {
         }, options);
         return fetch(this.apiEndpoint + path, optionsAssigned)
             .then(response => response.json())
-            .then((response) => {
+            .then(response => {
                 if (response.status === 200) {
                     return Promise.resolve(response);
                 }
