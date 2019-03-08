@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Users from 'Pages/Users/Users';
+import Home from 'Pages/Home/Home';
 import { clearData } from 'Actions/SessionUser';
 
 function mapStateToProps(state) {
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Users);
+)(Home);

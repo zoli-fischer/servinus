@@ -26,7 +26,7 @@ const store = createStore(
 );
 
 const Login = AsyncComponent(() => import('Containers/Pages/Login/Login'));
-const Users = AsyncComponent(() => import('Containers/Pages/Users/Users'));
+const Home = AsyncComponent(() => import('Containers/Pages/Home/Home'));
 const NotFound = AsyncComponent(() => import('Pages/NotFound/NotFound'));
 
 export default function App() {
@@ -36,7 +36,7 @@ export default function App() {
                 <Router>
                     <Switch>
                         <PublicRoute path="/login" exact component={Login} />
-                        <PrivateRoute path="/" exact component={Users} />
+                        <PrivateRoute path="/" exact component={Home} />
                         <Route component={NotFound} />
                     </Switch>
                 </Router>

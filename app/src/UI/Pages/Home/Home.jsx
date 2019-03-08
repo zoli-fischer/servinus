@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { createAPI } from 'Factories/API';
 
-export default function Users(props) {
+export default function Home(props) {
     const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState([]);
     const [email, setEmail] = useState('');
@@ -138,7 +138,7 @@ export default function Users(props) {
     );
 }
 
-Users.propTypes = {
+Home.propTypes = {
     sessionUser: PropTypes.shape({
         token: PropTypes.string,
         id: PropTypes.number,
@@ -146,6 +146,6 @@ Users.propTypes = {
     onLogout: PropTypes.func,
 };
 
-Users.defaultProps = {
+Home.defaultProps = {
     onLogout: () => {},
 };
