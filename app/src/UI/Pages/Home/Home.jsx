@@ -60,6 +60,7 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
+            <video src="http://localhost:3000/video/stream" height="320" controls={true} />
             <div className="container mt-3 mb-3">
                 <div className="row">
                     <div className="col-12">
