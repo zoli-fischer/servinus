@@ -14,16 +14,24 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db, callback) {
+exports.up = function(db, _callback) {
+  function callback(error) {
+    if (error) {
+      console.log(error.sql);
+      console.log(error.sqlMessage);
+    }
+    _callback(error);
+  };
+
   db.runSql(`
 CREATE TABLE \`tags\` (
   \`id\` int(10) UNSIGNED NOT NULL,
-  \`text\` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;`, null, callback);
+  \`name\` varchar(32) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`, null, callback);
   db.runSql(`
 ALTER TABLE \`tags\`
   ADD PRIMARY KEY (\`id\`),
-  ADD UNIQUE KEY \`text\` (\`text\`);`, null, callback);
+  ADD UNIQUE KEY \`name\` (\`name\`) USING BTREE;`, null, callback);
   db.runSql(`
 ALTER TABLE \`tags\`
   MODIFY \`id\` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;`, null, callback);

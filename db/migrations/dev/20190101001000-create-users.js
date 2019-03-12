@@ -16,8 +16,25 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db, callback) {
-  db.runSql('INSERT INTO users (email, password) VALUES (?, ?)', ['dev@servinus.com', bcrypt.hashSync('password', 10)], callback);
+exports.up = function(db, _callback) {
+  function callback(error) {
+    if (error) {
+      console.log(error.sql);
+      console.log(error.sqlMessage);
+    }
+    _callback(error);
+  };
+
+  db.runSql('INSERT INTO users (email, password) VALUES (?, ?)',
+    ['dev@servinus.com', bcrypt.hashSync('password', 10)],
+    callback);
+  [
+    [1, 'upload'],
+    [1, 'users'],
+    [1, 'adult']
+  ].forEach(row => {
+    db.runSql('INSERT INTO users_access (user_id, group_id) VALUES (?, ?)', row, callback);
+  });
 };
 
 exports.down = function(db, callback) {

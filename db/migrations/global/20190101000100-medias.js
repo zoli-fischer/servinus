@@ -14,7 +14,15 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db, callback) {
+exports.up = function(db, _callback) {
+  function callback(error) {
+    if (error) {
+      console.log(error.sql);
+      console.log(error.sqlMessage);
+    }
+    _callback(error);
+  };
+
   db.runSql(`
 CREATE TABLE \`medias\` (
   \`id\` int(10) UNSIGNED NOT NULL,
