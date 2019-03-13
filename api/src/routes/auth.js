@@ -19,6 +19,7 @@ router.post('/', (req, res, next) => {
 
         response.success(res, {
             userId: user.data.id,
+            fname: user.data.fname,
             authToken: authToken,
         });
     })

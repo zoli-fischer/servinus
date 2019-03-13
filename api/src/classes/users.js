@@ -53,7 +53,7 @@ class users {
 
     static getByAuthCredential(email, password) {
         return new Promise((resolve, reject) => {
-            database().query("SELECT id, email, password FROM users WHERE email = ? LIMIT 1", [email], (error, results, fields) => {
+            database().query("SELECT id, email, password, fname FROM users WHERE email = ? LIMIT 1", [email], (error, results, fields) => {
                 if (error) {
                     reject(error);
                 } else if (results.length !== 1) {

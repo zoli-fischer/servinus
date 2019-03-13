@@ -76,6 +76,21 @@
     white-space: nowrap;
 }
 
+:local(.Name) {
+    background: transparent;
+    appearance: none;
+    border: 0;
+    color: #ffffff;
+    font-size: 20px;
+    padding-left: 10px;
+
+    &, 
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+}
+
 :local(.Icon) {
     display: inline-block;
     height: 60px;
@@ -88,7 +103,7 @@
     background: #dddddd;
     transition: .2s background ease-out;
 
-    &, 
+    &,
     &:focus {
         box-shadow: none;
         outline: 0;

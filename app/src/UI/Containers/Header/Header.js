@@ -5,6 +5,7 @@ import { clearData } from 'Actions/SessionUser';
 function mapStateToProps(state) {
     return {
         isSessionUser: !!state.sessionUser.data.token,
+        name: state.sessionUser.data.fname,
     };
 }
 

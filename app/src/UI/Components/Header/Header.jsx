@@ -6,7 +6,7 @@ import Logo from 'Components/Logo/Logo';
 import Styles from './Header.scss';
 
 export default function Header({
-    children, className, onLogout, isSessionUser, ...rest
+    children, className, onLogout, isSessionUser, name, ...rest
 }) {
     const [showDropDown, setShowDropDown] = useState(false);
     const userContainerRef = useRef(null);
@@ -58,6 +58,13 @@ export default function Header({
                                     >
                                         <FontAwesomeIcon icon="user" />
                                     </button>
+                                    <button
+                                        type="button"
+                                        className={`${Styles.Name}`}
+                                        onClick={() => { setShowDropDown(value => !value); }}
+                                    >
+                                        {name}
+                                    </button>
                                     {
                                         showDropDown
                                             ? ReactDOM.createPortal((
@@ -72,8 +79,14 @@ export default function Header({
                                                             </li>
                                                             <li>
                                                                 <button type="button">
-                                                                    <span><FontAwesomeIcon icon="cog" /></span>
-                                                                    <span>Admin</span>
+                                                                    <span><FontAwesomeIcon icon="users" /></span>
+                                                                    <span>Users</span>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button type="button">
+                                                                    <span><FontAwesomeIcon icon="file-upload" /></span>
+                                                                    <span>Upload</span>
                                                                 </button>
                                                             </li>
                                                             <li>
@@ -104,6 +117,7 @@ Header.propTypes = {
     className: PropTypes.string,
     onLogout: PropTypes.func,
     isSessionUser: PropTypes.bool,
+    name: PropTypes.string,
 };
 
 Header.defaultProps = {
@@ -111,4 +125,5 @@ Header.defaultProps = {
     className: null,
     onLogout: () => {},
     isSessionUser: false,
+    name: null,
 };

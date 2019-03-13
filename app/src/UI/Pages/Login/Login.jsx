@@ -22,6 +22,7 @@ export default function Login(props) {
                 props.setUserData({
                     token: response.data.authToken,
                     id: response.data.userId,
+                    fname: response.data.fname,
                 });
             })
             .catch(response => {
