@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducers from 'Reducers/Reducers';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'Globals/FontAwesome';
 import AsyncComponent from 'Components/AsyncComponent/AsyncComponent';
 import PublicRoute from 'Containers/PublicRoute/PublicRoute';
 import PrivateRoute from 'Containers/PrivateRoute/PrivateRoute';

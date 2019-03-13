@@ -3,3 +3,100 @@
     padding: 10px 0;
     display: flex;
 }
+
+:local(.UserContainer) {
+    display: inline-block;
+    position: relative;
+}
+
+:local(.UserDropDown) {
+    position: absolute;
+    z-index: 100;
+    right: 10px;
+    top: 100px;
+
+    > ul {
+        display: block;
+        padding: 0;
+        margin: 0;
+        box-shadow: 1px 1px 5px #666666;
+        min-width: 220px;
+        text-align: right;
+        background: #ffffff;
+
+        > li {
+            display: block;
+            padding: 0;
+            margin: 0;
+
+            > button {
+                display: block;
+                width: 100%;
+                padding: 10px 20px;
+                appearance: none;
+                border: 0;
+                background: #ffffff;
+                text-align: right;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    background: #dddddd;
+                    height: 1px;
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                    top: 10px;
+                }
+
+                > span:last-child {
+                    padding-left: 10px;
+                }
+
+                &:hover,
+                &:focus {
+                    background: #eeeeee;
+                    box-shadow: none;
+                    outline: 0;
+                }
+            }
+
+            &:last-child {
+                > button {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+:local(.IconHolder) {
+    white-space: nowrap;
+}
+
+:local(.Icon) {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    font-size: 26px;
+    border: 0px;
+    appearance: none;
+    margin-left: 20px;
+    background: #dddddd;
+    transition: .2s background ease-out;
+
+    &, 
+    &:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+
+    &:hover,
+    &:focus {
+        background: #ffffff;
+        transition: .2s background ease-in;
+    }
+}
