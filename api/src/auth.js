@@ -19,6 +19,8 @@ module.exports = (req, res, next) => {
                         if (isCookie) {
                             cookies.authToken(res, authToken, new Date(Date.now() + config.authToken.cookieExpires));
                         }
+                        req.authUser = user;
+                        req.authToken = authToken;
                         next();
                     } else {
                         response.error(res, 500, "Failed to authenticate token.");

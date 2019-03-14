@@ -57,6 +57,18 @@ class user {
             });
         });
     }
+
+    getAccessGroups() {
+        return new Promise((resolve, reject) => {
+            database().query("SELECT group_id FROM users_access WHERE user_id = ?", [this.data.id], (error, results, fields) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(results.map(item => item.group_id));
+                }
+            });
+        });
+    }
 }
 
 module.exports = user;

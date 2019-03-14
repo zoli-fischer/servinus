@@ -15,6 +15,12 @@ export default class API {
         });
     }
 
+    authValidate() {
+        return this.fetch('/auth/validate', {
+            method: 'POST',
+        });
+    }
+
     users() {
         return this.fetch('/users', {
             method: 'GET',

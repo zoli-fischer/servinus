@@ -23,6 +23,7 @@ export default function Login(props) {
                     token: response.data.authToken,
                     id: response.data.userId,
                     fname: response.data.fname,
+                    accessGroups: response.data.accessGroups,
                 });
             })
             .catch(response => {

@@ -2,6 +2,7 @@ export const getEmptyUserData = () => ({
     token: '',
     id: 0,
     fname: '',
+    accessGroups: [],
 });
 
 export const getStoredUserData = () => JSON.parse(localStorage.getItem('SessionUser.userData')) || getEmptyUserData();

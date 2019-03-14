@@ -6,6 +6,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducers from 'Reducers/Reducers';
+import { setData, clearData } from 'Actions/SessionUser';
+import { createAPI } from 'Factories/API';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Globals/FontAwesome';
 import AsyncComponent from 'Components/AsyncComponent/AsyncComponent';
@@ -25,6 +27,26 @@ const store = createStore(
     Reducers,
     compose(...middlewares)
 );
+
+// On reload reload session user
+if (!!store.getState().sessionUser.data.token) {
+    createAPI(store.getState().sessionUser.data.token)
+        .authValidate()
+        .then(response => {
+            store.dispatch(
+                setData({
+                    token: response.data.authToken,
+                    id: response.data.userId,
+                    fname: response.data.fname,
+                    accessGroups: response.data.accessGroups,
+                })
+            );
+        })
+        .catch(response => {
+            store.dispatch(clearData());
+            console.error(response.error);
+        });
+}
 
 const Login = AsyncComponent(() => import('Containers/Pages/Login/Login'));
 const Home = AsyncComponent(() => import('Containers/Pages/Home/Home'));

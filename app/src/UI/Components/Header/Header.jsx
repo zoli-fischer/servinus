@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { hasUserAccess, ACCESS_GROUP_UPLOAD, ACCESS_GROUP_USERS } from 'Globals/UserAccessGroups';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from 'Components/Logo/Logo';
 import Styles from './Header.scss';
 
 export default function Header({
-    children, className, onLogout, isSessionUser, name, ...rest
+    children, className, onLogout, isSessionUser, userData, ...rest
 }) {
     const [showDropDown, setShowDropDown] = useState(false);
     const userContainerRef = useRef(null);
@@ -63,7 +64,7 @@ export default function Header({
                                         className={`${Styles.Name}`}
                                         onClick={() => { setShowDropDown(value => !value); }}
                                     >
-                                        {name}
+                                        {userData.fname}
                                     </button>
                                     {
                                         showDropDown
@@ -77,18 +78,26 @@ export default function Header({
                                                                     <span>My account</span>
                                                                 </button>
                                                             </li>
-                                                            <li>
-                                                                <button type="button">
-                                                                    <span><FontAwesomeIcon icon="users" /></span>
-                                                                    <span>Users</span>
-                                                                </button>
-                                                            </li>
-                                                            <li>
-                                                                <button type="button">
-                                                                    <span><FontAwesomeIcon icon="file-upload" /></span>
-                                                                    <span>Upload</span>
-                                                                </button>
-                                                            </li>
+                                                            {
+                                                                hasUserAccess(userData, ACCESS_GROUP_USERS) ? (
+                                                                    <li>
+                                                                        <button type="button">
+                                                                            <span><FontAwesomeIcon icon="users" /></span>
+                                                                            <span>Users</span>
+                                                                        </button>
+                                                                    </li>
+                                                                ) : null
+                                                            }
+                                                            {
+                                                                hasUserAccess(userData, ACCESS_GROUP_UPLOAD) ? (
+                                                                    <li>
+                                                                        <button type="button">
+                                                                            <span><FontAwesomeIcon icon="file-upload" /></span>
+                                                                            <span>Upload</span>
+                                                                        </button>
+                                                                    </li>
+                                                                ) : null
+                                                            }
                                                             <li>
                                                                 <button type="button" onClick={() => { onLogout(); setShowDropDown(false); }}>
                                                                     <span><FontAwesomeIcon icon="sign-out-alt" /></span>
@@ -117,7 +126,7 @@ Header.propTypes = {
     className: PropTypes.string,
     onLogout: PropTypes.func,
     isSessionUser: PropTypes.bool,
-    name: PropTypes.string,
+    userData: PropTypes.object,
 };
 
 Header.defaultProps = {
@@ -125,5 +134,5 @@ Header.defaultProps = {
     className: null,
     onLogout: () => {},
     isSessionUser: false,
-    name: null,
+    userData: null,
 };
