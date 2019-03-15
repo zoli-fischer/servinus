@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { hasUserAccess, ACCESS_GROUP_UPLOAD, ACCESS_GROUP_USERS } from 'Globals/UserAccessGroups';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from 'Components/Logo/Logo';
@@ -91,10 +92,10 @@ export default function Header({
                                                             {
                                                                 hasUserAccess(userData, ACCESS_GROUP_UPLOAD) ? (
                                                                     <li>
-                                                                        <button type="button">
+                                                                        <Link to="/upload">
                                                                             <span><FontAwesomeIcon icon="file-upload" /></span>
                                                                             <span>Upload</span>
-                                                                        </button>
+                                                                        </Link>
                                                                     </li>
                                                                 ) : null
                                                             }

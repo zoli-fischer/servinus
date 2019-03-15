@@ -50,10 +50,12 @@ if (!!store.getState().sessionUser.data.token) {
             console.error(response.error);
         });
 }
+
 */
 
 const Login = AsyncComponent(() => import('Pages/Login/Login'));
 const Home = AsyncComponent(() => import('Pages/Home/Home'));
+const Upload = AsyncComponent(() => import('Pages/Upload/Upload'));
 const NotFound = AsyncComponent(() => import('Pages/NotFound/NotFound'));
 
 export default function App() {
@@ -64,6 +66,7 @@ export default function App() {
                     <Switch>
                         <PublicRoute path="/login" exact component={Login} />
                         <PrivateRoute path="/" exact component={Home} />
+                        <PrivateRoute path="/upload" exact component={Upload} accessGroups={['upload']} />
                         <Route component={NotFound} />
                     </Switch>
                 </Router>
