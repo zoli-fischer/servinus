@@ -10,7 +10,6 @@ module.exports = {
     Actions: path.resolve(paths.appSrc, 'Redux/Actions/'),
     App: path.resolve(paths.appSrc, 'UI/App/'),
     Components: path.resolve(paths.appSrc, 'UI/Components/'),
-    Containers: path.resolve(paths.appSrc, 'UI/Containers/'),
     Pages: path.resolve(paths.appSrc, 'UI/Pages/'),
     Styles: path.resolve(paths.appSrc, 'Styles/'),
 };

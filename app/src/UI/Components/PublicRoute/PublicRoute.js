@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PrivateRoute from 'Components/PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute.presentational';
 
 function mapStateToProps(state) {
     return {
@@ -9,4 +9,4 @@ function mapStateToProps(state) {
 
 export default connect(
     mapStateToProps
-)(PrivateRoute);
+)(PublicRoute);

@@ -6,13 +6,15 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Reducers from 'Reducers/Reducers';
+/*
 import { setData, clearData } from 'Actions/SessionUser';
 import { createAPI } from 'Factories/API';
+*/
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'Globals/FontAwesome';
 import AsyncComponent from 'Components/AsyncComponent/AsyncComponent';
-import PublicRoute from 'Containers/PublicRoute/PublicRoute';
-import PrivateRoute from 'Containers/PrivateRoute/PrivateRoute';
+import PublicRoute from 'Components/PublicRoute/PublicRoute';
+import PrivateRoute from 'Components/PrivateRoute/PrivateRoute';
 import Styles from './App.scss';
 
 const middlewares = [applyMiddleware(thunk)];
@@ -29,6 +31,7 @@ const store = createStore(
 );
 
 // On reload reload session user
+/*
 if (!!store.getState().sessionUser.data.token) {
     createAPI(store.getState().sessionUser.data.token)
         .authValidate()
@@ -47,9 +50,10 @@ if (!!store.getState().sessionUser.data.token) {
             console.error(response.error);
         });
 }
+*/
 
-const Login = AsyncComponent(() => import('Containers/Pages/Login/Login'));
-const Home = AsyncComponent(() => import('Containers/Pages/Home/Home'));
+const Login = AsyncComponent(() => import('Pages/Login/Login'));
+const Home = AsyncComponent(() => import('Pages/Home/Home'));
 const NotFound = AsyncComponent(() => import('Pages/NotFound/NotFound'));
 
 export default function App() {

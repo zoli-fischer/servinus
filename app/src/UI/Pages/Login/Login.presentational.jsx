@@ -7,7 +7,7 @@ import Input from 'Components/Form/Input/Input';
 import Form from 'Components/Form/Form';
 import Button from 'Components/Form/Button/Button';
 import Switch from 'Components/Form/Switch/Switch';
-import Styles from './Login.scss';
+import Styles from './Login.presentational.scss';
 import ContentStyles from 'Styles/Content.scss';
 
 export default function Login(props) {

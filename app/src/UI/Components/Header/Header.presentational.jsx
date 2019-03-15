@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { hasUserAccess, ACCESS_GROUP_UPLOAD, ACCESS_GROUP_USERS } from 'Globals/UserAccessGroups';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from 'Components/Logo/Logo';
-import Styles from './Header.scss';
+import Styles from './Header.presentational.scss';
 
 export default function Header({
     children, className, onLogout, isSessionUser, userData, ...rest

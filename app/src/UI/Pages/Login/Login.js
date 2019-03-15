@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Login from 'Pages/Login/Login';
+import Login from './Login.presentational';
 import { setData } from 'Actions/SessionUser';
 
 function mapDispatchToProps(dispatch) {

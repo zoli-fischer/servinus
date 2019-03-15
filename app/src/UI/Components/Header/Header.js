@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
-import Home from 'Pages/Home/Home';
+import Header from './Header.presentational';
 import { clearData } from 'Actions/SessionUser';
 
 function mapStateToProps(state) {
     return {
-        sessionUser: state.sessionUser.data,
+        isSessionUser: !!state.sessionUser.data.token,
+        userData: state.sessionUser.data,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        onLogout: () => {
-            dispatch(clearData());
-        },
+        onLogout: () => dispatch(clearData()),
     };
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home);
+)(Header);

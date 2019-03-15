@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from 'Containers/Header/Header';
+import Header from 'Components/Header/Header';
 import Styles from './Frame.scss';
 
 export default function Frame({
