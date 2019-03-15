@@ -50,7 +50,6 @@ if (!!store.getState().sessionUser.data.token) {
             console.error(response.error);
         });
 }
-
 */
 
 const Login = AsyncComponent(() => import('Pages/Login/Login'));
