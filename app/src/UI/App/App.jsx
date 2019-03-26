@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-    BrowserRouter as Router, Switch, Route,
+    BrowserRouter as Router, Route,
 } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -62,12 +63,17 @@ export default function App() {
         <Provider store={store}>
             <div className={Styles.App}>
                 <Router>
-                    <Switch>
+                    <AnimatedSwitch
+                        atEnter={{ opacity: 0 }}
+                        atLeave={{ opacity: 0 }}
+                        atActive={{ opacity: 1 }}
+                        className={Styles.SwitchWrapper}
+                    >
                         <PublicRoute path="/login" exact component={Login} />
                         <PrivateRoute path="/" exact component={Home} />
                         <PrivateRoute path="/upload" exact component={Upload} accessGroups={['upload']} />
                         <Route component={NotFound} />
-                    </Switch>
+                    </AnimatedSwitch>
                 </Router>
             </div>
         </Provider>
